@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0A45EDE-0F14-42D3-B94D-4C3B430B489C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom\BangCongView.cs" />
+    <Compile Include="DAO\BoPhanDAO.cs" />
+    <Compile Include="DAO\ChamCongDAO.cs" />
+    <Compile Include="DAO\ChucVuDAO.cs" />
+    <Compile Include="DAO\NhanVienDAO.cs" />
+    <Compile Include="Models\BANGCONG.cs" />
+    <Compile Include="Models\BOPHAN.cs" />
+    <Compile Include="Models\BOPHAN_CHUCVUs.cs" />
+    <Compile Include="Models\CHUCNANG.cs" />
+    <Compile Include="Models\CHUCVU.cs" />
+    <Compile Include="Models\CHUCVU_PHUCAPs.cs" />
+    <Compile Include="Models\GIAMTRU.cs" />
+    <Compile Include="Models\HOPDONG.cs" />
+    <Compile Include="Models\KHAUTRU.cs" />
+    <Compile Include="Models\KYLUAT.cs" />
+    <Compile Include="Models\LOAICA.cs" />
+    <Compile Include="Models\LOAICONG.cs" />
+    <Compile Include="Models\LOAIHOPDONG.cs" />
+    <Compile Include="Models\LOAIKHENTHUONG.cs" />
+    <Compile Include="Models\NGHI.cs" />
+    <Compile Include="Models\NHANSU.cs" />
+    <Compile Include="Models\NHANVIEN.cs" />
+    <Compile Include="Models\NHANVIEN_KHAUTRUs.cs" />
+    <Compile Include="Models\NHANVIEN_KHENTHUONGs.cs" />
+    <Compile Include="Models\NHANVIEN_KYLUATs.cs" />
+    <Compile Include="Models\NHANVIEN_PHUCAPs.cs" />
+    <Compile Include="Models\NHANVIEN_THETU.cs" />
+    <Compile Include="Models\NHOM.cs" />
+    <Compile Include="Models\NHOM_CHUCNANGs.cs" />
+    <Compile Include="Models\PHEPNAM.cs" />
+    <Compile Include="Models\PHIEULUONG.cs" />
+    <Compile Include="Models\PHIEUTANGCA.cs" />
+    <Compile Include="Models\PHUCAP.cs" />
+    <Compile Include="Models\QLNS.cs" />
+    <Compile Include="Models\STATUS.cs" />
+    <Compile Include="Models\SUTHAYDOI.cs" />
+    <Compile Include="Models\TAIKHOAN.cs" />
+    <Compile Include="Models\TANGCA.cs" />
+    <Compile Include="Models\TAX.cs" />
+    <Compile Include="Models\THETU.cs" />
+    <Compile Include="Models\TIENUNG.cs" />
+    <Compile Include="Models\TRINHDO.cs" />
+    <Compile Include="Models\TUYENDUNG.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

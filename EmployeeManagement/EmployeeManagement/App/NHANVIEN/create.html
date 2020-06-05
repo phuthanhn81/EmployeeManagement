@@ -1,0 +1,77 @@
+﻿<form name="form" class="form-horizontal" role="form" ng-submit="Create(data,form.$invalid)" ng-controller="NHANVIENController">
+    <div class="card-header py-3 mgb">
+        <h6 class="m-0 font-weight-bold text-primary">Thêm nhân viên</h6>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="text" ng-model="data.HOTEN" placeholder="Họ tên" class="form-control" autofocus required only-letter>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="date" ng-model="data.NGAYSINH" class="form-control" autofocus required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="email" ng-model="data.EMAIL" placeholder="Email" class="form-control" name="email" autofocus required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="text" name="CMND" ng-model="data.CMND" placeholder="Căn cước công dân" class="form-control" range="12,12" only-number>
+            <span ng-show="form.CMND.$error.range">Căn cước công dân phải là {{data.CMND}} số</span>
+            <span ng-show="form.CMND.$error.force">Căn cước công dân phải có</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="text" name="SDT" ng-model="data.SDT" placeholder="Số điện thoại" class="form-control" range="10,10" only-number>
+            <span ng-show="form.SDT.$error.range">Số điện thoại phải là {{data.SDT}} số</span>
+            <span ng-show="form.SDT.$error.force">Số điện thoại phải có</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Phái</label>
+        <div class="col-sm-6">
+            <!-- ng-model thay cho name | ng-init thay cho ng-checked -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" ng-init="data.PHAI='Nữ'" ng-model="data.PHAI" value="Nữ"> Nữ
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="data.PHAI" value="Nam"> Nam
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" ng-controller="CHUCVUController">
+        <label for="password" class="col-sm-3 control-label">Chức vụ</label>
+        <div class="col-sm-9">
+            <!-- name (ở CSDL) phải 9 xác 100% kể cả chữ hoa-thường ng-models và ng-options phải đi kèm với nhau -->
+            <select class="form-control"
+                    ng-model="data.MACV"
+                    ng-options="cv.MACV as cv.TENCV for cv in CHUCVU"
+                    ng-change="Update(data.MACV)"></select>
+        </div>
+    </div>
+    <div class="form-group" ng-controller="BOPHANController">
+        <label for="password" class="col-sm-3 control-label">Bộ phận</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                    ng-model="data.MABP"
+                    ng-options="bp.MABP as bp.TENBP for bp in BOPHAN"
+                    ng-change="Update(data.MABP)"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-9">
+            <button type="submit" class="form-control">Register</button>
+        </div>
+    </div>
+</form>

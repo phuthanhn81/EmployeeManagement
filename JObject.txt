@@ -1,0 +1,11 @@
+﻿data (BODY) - params (URL) -> both
+DELETE
+POST
+PUT
+
+params (URL) -> only -> ko có data (BODY)
+GET
+
+List<LOAICONG> listlc = new JavaScriptSerializer().Deserialize<List<LOAICONG>>(manglc); 
+-> convert json -> list (convert sai ngừng hàm luôn)
+LOAICONG loaicong = new JavaScriptSerializer().Deserialize<LOAICONG>(lc);

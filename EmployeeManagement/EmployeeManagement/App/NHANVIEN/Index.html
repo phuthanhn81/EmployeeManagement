@@ -1,0 +1,68 @@
+﻿<div class="card shadow mb-4" ng-controller="NHANVIENController">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block">Danh sách nhân viên</h6>
+        <input type="text" ng-model="search.PHAI" placeholder="Search" style="float:right" />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã nhân viên</th>
+                        <th>Họ tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Chức vụ</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tfoot></tfoot>
+                <tbody>
+                    <tr dir-paginate="n in Employees | itemsPerPage:10 | orderBy:['MANV']:false | filter:search" pagination-id="listnv">
+                        <td>{{n.MANV}}</td>
+                        <td>{{n.HOTEN}}</td>
+                        <td>{{n.NGAYSINH | date:"dd/MM/yyyy"}}</td>
+                        <td>{{n.PHAI}}</td>
+                        <td>{{n.CHUCVU.TENCV}}</td>
+
+                        <td>
+                            <a class="btn btn-primary btn-circle btn-sm" ui-sref="update_nv({ employee: n, manv: '2001140230' })">
+                                <i class="fas fa-info"></i>
+                            </a>
+                            |
+                            <a href="#" id="{{n.MANV}}" ng-click="Open(n)" class="btn btn-danger btn-circle btn-sm">
+                                <!-- Text -->
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="phantrang">
+                <dir-pagination-controls template-url="/Assets/dirPagination.tpl.html"
+                                         boundary-links="true"
+                                         pagination-id="listnv"
+                                         style="float:right">
+                </dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal never show -->
+    <div class="modal" tabindex="-1" role="dialog" id="delete_nv">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa nhân viên</h5>
+                </div>
+                <div class="modal-body">
+                    <span id="confirm"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="Delete()">Xóa</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

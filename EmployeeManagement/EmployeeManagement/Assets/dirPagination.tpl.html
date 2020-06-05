@@ -1,0 +1,26 @@
+﻿<ul class="pagination" ng-if="1 < pages.length">
+    <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == 1 }">
+        <a class="page-link" href="" ng-click="setCurrent(1)">&laquo;</a>
+    </li>
+
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }" class="ng-scope">
+        <a href="" ng-click="setCurrent(pagination.current - 1)" class="ng-binding page-link">‹</a>
+    </li>
+
+    <li ng-repeat="pageNumber in pages track by $index" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }">
+        <a class="page-link" href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+    </li>
+
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }" class="ng-scope">
+        <a href="" ng-click="setCurrent(pagination.current + 1)" class="ng-binding page-link">›</a>
+    </li>
+
+    <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == pagination.last }">
+        <a class="page-link" href="" ng-click="setCurrent(pagination.last)">&raquo;</a>
+    </li>
+</ul>
+
+<!-- F5 ở trang nào thì chạy trang đó -->
+<!-- cả API và ASP data đều lấy trung gian từ 1 [Model]service nào đó -->
+<!-- service có rất nhiều method tương tác data nhưng API và ASP thường ko lấy hết -->
+<!-- API tương tác với admin qua html - ASP tương tác với client qua cshtml (cấu hình lại URL) -->
